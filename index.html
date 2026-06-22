@@ -39,7 +39,28 @@
   .pstep.clickable:hover{background:var(--accent-soft);color:var(--ink)}
 
   .card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:22px;}
-  .drop{border:1.5px dashed var(--line-strong);border-radius:12px;padding:38px 20px;text-align:center;cursor:pointer;transition:.2s;background:linear-gradient(180deg,#fff,#fcfdfd);}
+
+  .setup{margin-bottom:20px;padding-bottom:20px;border-bottom:1px solid var(--line)}
+  label.fld{display:block;font-size:12px;font-family:'IBM Plex Mono',monospace;letter-spacing:.04em;text-transform:uppercase;color:var(--muted);margin:0 0 8px;font-weight:600}
+  select,.otherinput{width:100%;font-family:'Inter',sans-serif;font-size:15px;color:var(--ink);background:#fff;border:1.5px solid var(--line-strong);border-radius:10px;padding:13px 14px;}
+  select{appearance:none;cursor:pointer;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%235B6470' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center;}
+  select:focus,.otherinput:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-soft)}
+  .field{max-width:340px;margin-bottom:20px}
+  .nominputs{display:flex;gap:20px;flex-wrap:wrap}
+  .nominputs .field{flex:1;min-width:260px;margin-bottom:0}
+  .otherinput{margin-top:8px}
+  .setlabel{font-size:13px;color:var(--ink);margin:0 0 14px;font-weight:500}
+  .setlabel .muted{color:var(--muted);font-weight:400;font-size:12.5px}
+  .nomrow{display:flex;align-items:center;gap:12px;margin-bottom:10px;flex-wrap:wrap}
+  .nomname{font-size:11px;font-family:'IBM Plex Mono',monospace;letter-spacing:.03em;text-transform:uppercase;color:var(--muted);width:96px;flex:none}
+  .chips{display:flex;gap:8px;flex-wrap:wrap}
+  .chip-t{font-family:'IBM Plex Mono',monospace;font-size:12.5px;padding:7px 13px;border:1.5px solid var(--line-strong);background:#fff;border-radius:20px;cursor:pointer;color:var(--muted);transition:.15s}
+  .chip-t:hover{border-color:var(--accent)}
+  .chip-t.on{background:var(--accent);border-color:var(--accent);color:#fff}
+  .preview-lbl{margin-top:14px;font-size:12.5px;color:var(--muted)}
+  .preview-lbl b{color:var(--ink);font-family:'IBM Plex Mono',monospace}
+
+  .drop{border:1.5px dashed var(--line-strong);border-radius:12px;padding:34px 20px;text-align:center;cursor:pointer;transition:.2s;background:linear-gradient(180deg,#fff,#fcfdfd);}
   .drop:hover,.drop.over{border-color:var(--accent);background:var(--accent-soft)}
   .drop .ico{font-family:'IBM Plex Mono',monospace;font-size:13px;letter-spacing:.1em;color:var(--accent);font-weight:600}
   .drop .big{font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:17px;margin:12px 0 4px}
@@ -56,13 +77,10 @@
   .loaded-strip .fmeta b{color:var(--ink)}
   .btn.small{padding:9px 16px;font-size:13.5px}
 
-  label.fld{display:block;font-size:12px;font-family:'IBM Plex Mono',monospace;letter-spacing:.04em;text-transform:uppercase;color:var(--muted);margin:0 0 8px;font-weight:600}
-  select{width:100%;font-family:'Inter',sans-serif;font-size:15px;color:var(--ink);background:#fff;border:1.5px solid var(--line-strong);border-radius:10px;padding:13px 14px;appearance:none;cursor:pointer;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%235B6470' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center;}
-  select:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-soft)}
   .vsummary{margin-top:14px;font-size:13px;color:var(--muted);min-height:20px}
   .vsummary b{color:var(--ink)}
-  .vsummary .chip{display:inline-block;padding:1px 8px;border-radius:20px;font-size:11px;font-weight:600;font-family:'IBM Plex Mono',monospace;color:#fff;margin-left:4px}
-  .chip.risk{background:var(--risk)} .chip.delayed{background:var(--delayed)} .chip.done{background:var(--done)} .chip.notstarted{background:var(--notstarted)}
+  .vsummary .dot{display:inline-block;width:9px;height:9px;border-radius:50%;margin:0 3px 0 8px;vertical-align:middle}
+  .dot.risk{background:var(--risk)} .dot.delayed{background:var(--delayed)} .dot.done{background:var(--done)} .dot.notstarted{background:var(--notstarted)}
 
   .actions{display:flex;gap:12px;align-items:center;margin-top:22px;flex-wrap:wrap}
   .btn{font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:15px;border:none;border-radius:10px;padding:13px 24px;cursor:pointer;transition:.18s;background:var(--accent);color:#fff}
@@ -74,7 +92,7 @@
   .err b{font-weight:600}
   .hidden{display:none}
   footer{margin-top:26px;text-align:center;font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--muted);letter-spacing:.04em}
-  @media (max-width:560px){.pstep span.lbl{display:none}.pstep{justify-content:center}h1{font-size:24px}}
+  @media (max-width:560px){.pstep span.lbl{display:none}.pstep{justify-content:center}h1{font-size:23px}.nomname{width:auto}}
   @media (prefers-reduced-motion:reduce){*{transition:none!important}}
 </style>
 </head>
@@ -82,17 +100,31 @@
 <div class="wrap">
   <header>
     <p class="eyebrow">Expediting · Vendor Reporting</p>
-    <h1>Vendor Report Generator</h1>
-    <p class="sub">Upload the client data dump, choose a vendor, and download the formatted vendor report — grouped by PO with phase detail, status colouring and bulleted comments.</p>
+    <h1 id="appTitle">Thermax / SRF Vendor Report Generator</h1>
+    <p class="sub">Tell the tool what PO and Item mean, upload the data dump, choose a vendor, and download the formatted report.</p>
   </header>
 
   <div class="pipe">
-    <div class="pstep active" id="s1"><span class="n">1</span><span class="lbl">Upload dump</span></div>
+    <div class="pstep active" id="s1"><span class="n">1</span><span class="lbl">Set up &amp; upload</span></div>
     <div class="pstep" id="s2"><span class="n">2</span><span class="lbl">Select vendor</span></div>
-    <div class="pstep" id="s3"><span class="n">3</span><span class="lbl">Download report</span></div>
+    <div class="pstep" id="s3"><span class="n">3</span><span class="lbl">Download</span></div>
   </div>
 
   <div class="card" id="card-upload">
+    <div class="setup">
+      <p class="setlabel">Tell the tool what the dump's levels mean <span class="muted">— these become the labels in the report</span></p>
+      <div class="nominputs">
+        <div class="field">
+          <label class="fld" for="poTerm">What does “PO” mean?</label>
+          <input id="poTerm" class="otherinput" type="text" value="PO" placeholder="e.g. PO  /  PO / Equipment  /  Equipment" />
+        </div>
+        <div class="field">
+          <label class="fld" for="itemTerm">What does “Item” mean?</label>
+          <input id="itemTerm" class="otherinput" type="text" value="Phase / Item" placeholder="e.g. Item  /  Phase / Item  /  Milestone" />
+        </div>
+      </div>
+    </div>
+
     <label class="drop" id="drop">
       <div class="ico">.XLSX / .CSV</div>
       <div class="big">Drop the data dump here, or click to choose</div>
@@ -107,7 +139,7 @@
   </div>
 
   <div class="card hidden" id="card-select">
-    <button class="link back" id="back">← Back to upload</button>
+    <button class="link back" id="back">← Back to set up &amp; upload</button>
     <div class="filebar">
       <div class="fmeta">Loaded <b id="fname">—</b> · <b id="fvendors">0</b> vendors · <b id="frows">0</b> rows</div>
       <button class="link" id="reset">Choose a different file</button>
@@ -137,15 +169,13 @@
   const REQUIRED = ["vendor","poNo","phase","phStatus","planEnd","foreEnd"];
   const norm = s => String(s==null?"":s).toLowerCase().replace(/[^a-z0-9]/g,"");
 
-  let rows = [];            // canonical rows
-  let vendorList = [];      // [{display, key}]
-  let fileName = "";
+  let rows=[], vendorList=[], fileName="";
 
   const $ = id => document.getElementById(id);
   const drop=$("drop"), fileInput=$("file"), sel=$("vendor");
   const cardUpload=$("card-upload"), cardSelect=$("card-select"), uploadErr=$("upload-err");
 
-  // helpers
+  // ---- helpers ----
   function parseDMY(v){
     if(v==null||v==="") return null;
     if(v instanceof Date) return v;
@@ -157,17 +187,36 @@
   function toNum(v){ if(v==null||v==="")return null; const n=Number(String(v).replace(/[, ]/g,"")); return isNaN(n)?null:n; }
   const MONTHS=["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
   const fmtDate=d=> d?`${String(d.getDate()).padStart(2,"0")}-${MONTHS[d.getMonth()]}-${d.getFullYear()}`:"";
-  function statusClass(s){
+  // ---- status mapping: 8 known item statuses + fallback ----
+  const STATUS_DEFS=[
+    {cls:"complete",    keys:["complete"],                 label:"Complete",           argb:"FF1E8E5A"},
+    {cls:"inprogress",  keys:["inprogress","ontrack"],     label:"In Progress",        argb:"FF2D6CB5"},
+    {cls:"notstarted",  keys:["notstarted","notyetstarted"],label:"Not Started",       argb:"FF8A929C"},
+    {cls:"lowrisk",     keys:["lowrisk"],                  label:"Low Risk",           argb:"FFD9C45A"},
+    {cls:"mediumrisk",  keys:["mediumrisk"],               label:"Medium Risk",        argb:"FFE0A91B"},
+    {cls:"highrisk",    keys:["highrisk"],                 label:"High Risk",          argb:"FFD98324"},
+    {cls:"delayed",     keys:["delayed","delay"],          label:"Delayed",            argb:"FFC0392B"},
+    {cls:"delayedcomp", keys:["delayedcompletion"],        label:"Delayed Completion", argb:"FF7B241C"}
+  ];
+  // most-specific first so e.g. "delayedcompletion" wins over "delayed"/"complete", "highrisk" over generic
+  const MATCH_ORDER=["delayedcomp","highrisk","mediumrisk","lowrisk","inprogress","notstarted","delayed","complete"];
+  const FALLBACK_ARGB="FF884EA0";
+  function classify(s){
     const t=norm(s);
-    if(t.includes("highrisk")) return "risk";
-    if(t.includes("delay")) return "delayed";
-    if(t.includes("complete")) return "done";
-    if(t.includes("ontrack")) return "ontrack";
-    return "notstarted";
+    for(const cls of MATCH_ORDER){
+      const def=STATUS_DEFS.find(d=>d.cls===cls);
+      if(def.keys.some(k=>t.includes(k))) return cls;
+    }
+    return "other";
   }
+  function statusColor(s){ const d=STATUS_DEFS.find(x=>x.cls===classify(s)); return d?d.argb:FALLBACK_ARGB; }
   function setStage(n){[["s1",1],["s2",2],["s3",3]].forEach(([id,k])=>{const e=$(id);e.classList.remove("active","done");if(k<n)e.classList.add("done");else if(k===n)e.classList.add("active");});}
 
-  // file events
+  // ---- nomenclature (free-text input) ----
+  function poTerm(){ return ($("poTerm").value.trim()) || "PO"; }
+  function itemTerm(){ return ($("itemTerm").value.trim()) || "Phase / Item"; }
+
+  // ---- navigation ----
   drop.addEventListener("dragover",e=>{e.preventDefault();drop.classList.add("over");});
   drop.addEventListener("dragleave",()=>drop.classList.remove("over"));
   drop.addEventListener("drop",e=>{e.preventDefault();drop.classList.remove("over");if(e.dataTransfer.files.length)handleFile(e.dataTransfer.files[0]);});
@@ -180,23 +229,18 @@
   sel.addEventListener("change",onVendorChange);
   $("gen").addEventListener("click",generate);
 
-  // Navigate to the upload screen WITHOUT discarding the loaded dump
   function goToUpload(){
     cardSelect.classList.add("hidden"); cardUpload.classList.remove("hidden");
     if(rows.length){ $("ls-name").textContent=fileName; $("loaded-strip").classList.remove("hidden"); }
     else { $("loaded-strip").classList.add("hidden"); }
     setStage(1); markClickable();
   }
-  // Return to the vendor screen (data already in memory)
   function goToSelect(){
     if(!rows.length) return;
     cardUpload.classList.add("hidden"); cardSelect.classList.remove("hidden");
     setStage(sel.value?3:2); markClickable();
   }
-  function markClickable(){
-    $("s1").classList.toggle("clickable", rows.length>0);
-    $("s2").classList.toggle("clickable", rows.length>0);
-  }
+  function markClickable(){ $("s1").classList.toggle("clickable",rows.length>0); $("s2").classList.toggle("clickable",rows.length>0); }
 
   const showErr=h=>{uploadErr.innerHTML=h;uploadErr.classList.remove("hidden");};
   const clearErr=()=>{uploadErr.classList.add("hidden");uploadErr.innerHTML="";};
@@ -257,8 +301,6 @@
     }
     if(!out.length){ showErr("No data rows found below the header."); return; }
     rows=out;
-
-    // unique vendors, preserve first-seen order
     const seen=new Map();
     rows.forEach(r=>{ if(r.vendor){const k=norm(r.vendor); if(!seen.has(k)) seen.set(k,r.vendor);} });
     vendorList=[...seen.entries()].map(([key,display])=>({key,display}));
@@ -274,29 +316,40 @@
     if(!key){ $("gen").disabled=true; $("vsummary").textContent=""; $("genmsg").textContent="Pick a vendor to enable the report."; setStage(2); return; }
     const vr=rows.filter(r=>norm(r.vendor)===key);
     const pos=new Set(vr.map(r=>r.poNo));
-    const counts={risk:0,delayed:0,done:0,notstarted:0};
-    const poStatusByNo=new Map(); vr.forEach(r=>{ if(!poStatusByNo.has(r.poNo)) poStatusByNo.set(r.poNo,r.poStatus); });
-    poStatusByNo.forEach(s=>{const c=statusClass(s);counts[c==="risk"?"risk":c==="delayed"?"delayed":c==="done"?"done":"notstarted"]++;});
-    const bits=[];
-    if(counts.risk) bits.push(`<span class="chip risk">${counts.risk} high risk</span>`);
-    if(counts.delayed) bits.push(`<span class="chip delayed">${counts.delayed} delayed</span>`);
-    if(counts.notstarted) bits.push(`<span class="chip notstarted">${counts.notstarted} not started</span>`);
-    if(counts.done) bits.push(`<span class="chip done">${counts.done} completed</span>`);
-    $("vsummary").innerHTML=`<b>${pos.size}</b> PO${pos.size>1?"s":""} · <b>${vr.length}</b> phases ${bits.join(" ")}`;
+    const midL=poTerm();
+    // distinct item statuses present, shown as small coloured dots
+    const present=[]; const seenS=new Set();
+    vr.forEach(r=>{ if(r.phStatus){ const k=norm(r.phStatus); if(!seenS.has(k)){ seenS.add(k); present.push(r.phStatus); } } });
+    const dots=present.map(s=>`<span class="dot" style="background:#${statusColor(s).slice(2)}"></span>${esc(s)}`).join(" ");
+    $("vsummary").innerHTML=`<b>${pos.size}</b> ${esc(midL)}${pos.size>1?"s":""} · <b>${vr.length}</b> phases &nbsp; ${dots}`;
     $("gen").disabled=false; $("genmsg").textContent="Ready — generates the formatted .xlsx."; setStage(3);
   }
   function esc(s){return String(s==null?"":s).replace(/[&<>"]/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[m]));}
 
-  // ---------- Excel build (matches the locked format) ----------
+  // ---------- Excel build ----------
   const LINE="FFDDE1E6", INK="FF1A1F27", MUTED="FF6B7480", PO_FILL="FF14323A",
         METRIC="FFEFF2F5", HEAD="FFF4F6F8", BANDB="FFFAFBFC";
-  const ST={risk:"FFD98324",delayed:"FFC0392B",done:"FF1E8E5A",notstarted:"FF8A929C",ontrack:"FF097A7E"};
   const SLIP={bad:"FFF6D4D0",med:"FFFBE6CF",low:"FFFDF3D6",ok:"FFE0F0E6"};
   const FN="Calibri";
   const B={style:"thin",color:{argb:LINE}};
-  const stFill=s=>ST[statusClass(s)]||ST.notstarted;
   const slipCls=d=> d==null?null : d>90?"bad" : d>30?"med" : d>0?"low" : "ok";
   const fill=a=>({type:"pattern",pattern:"solid",fgColor:{argb:a}});
+  function statusDot(s,size){
+    return {richText:[
+      {text:"\u25CF ",font:{name:FN,size:size||9.5,color:{argb:statusColor(s)}}},
+      {text:s||"\u2014",font:{name:FN,size:size||9.5,color:{argb:INK}}}
+    ]};
+  }
+  // legend built from the item statuses actually present (known ones first, in defined order, then any unrecognised)
+  function legendRich(statuses){
+    const items=[];
+    STATUS_DEFS.forEach(d=>{ if(statuses.some(s=>classify(s)===d.cls)) items.push({argb:d.argb,label:d.label}); });
+    const seen=new Set();
+    statuses.forEach(s=>{ if(classify(s)==="other"){ const k=norm(s); if(!seen.has(k)){ seen.add(k); items.push({argb:FALLBACK_ARGB,label:s}); } } });
+    const rt=[{text:"Legend:     ",font:{name:FN,size:10,bold:true,color:{argb:MUTED}}}];
+    items.forEach(it=>{ rt.push({text:"\u25CF  ",font:{name:FN,size:10,color:{argb:it.argb}}}); rt.push({text:it.label+"        ",font:{name:FN,size:10,color:{argb:INK}}}); });
+    return {rich:{richText:rt}, count:items.length};
+  }
 
   function bar(ws,r,c1,c2,argb,top,bottom){
     for(let c=c1;c<=c2;c++){
@@ -311,10 +364,10 @@
   async function generate(){
     const key=sel.value; if(!key) return;
     const vendor=vendorList.find(v=>v.key===key).display;
+    const midL=poTerm(), detailL=itemTerm();
     const btn=$("gen"); btn.disabled=true; $("genmsg").textContent="Building report…";
     try{
       const vr=rows.filter(r=>norm(r.vendor)===key);
-      // group by PO, preserve order
       const poMap=new Map();
       vr.forEach(r=>{
         if(!poMap.has(r.poNo)) poMap.set(r.poNo,{poNo:r.poNo,project:r.project,poDesc:r.poDesc,poStatus:r.poStatus,poQty:r.poQty,poExp:r.poExp,poAct:r.poAct,phases:[]});
@@ -322,51 +375,48 @@
       });
 
       const wb=new ExcelJS.Workbook(); wb.creator="MMT Expediting";
-      const ws=wb.addWorksheet("Vendor Report");
-      ws.views=[{showGridLines:false}];
-      const widths=[26,8,8,12,12,12,12,16,8,14,14,14,14];
+      const ws=wb.addWorksheet("Vendor Report"); ws.views=[{showGridLines:false}];
+      const widths=[34,11,11,15,15,15,28,18,18,18,18];
       widths.forEach((w,i)=>ws.getColumn(i+1).width=w);
-      const NC=13, CST=10;
+      const NC=11, CST=8;
 
       let r=1;
-      // title
       let m=bar(ws,r,1,NC,"FFFFFFFF",false,false); m.value="Vendor Report"; m.font={name:FN,size:18,bold:true,color:{argb:INK}}; ws.getRow(r).height=26; r++;
-      // vendor name + date
       m=bar(ws,r,1,NC,"FFFFFFFF",false,false);
       m.value={richText:[{text:vendor,font:{name:FN,size:14,bold:true,color:{argb:INK}}},{text:"      As on "+fmtDate(new Date()),font:{name:FN,size:10,color:{argb:MUTED}}}]};
       m.alignment={vertical:"middle"}; ws.getRow(r).height=22; r+=2;
 
-      const HEADS=["Phase / Item","Exp %","Act %","Plan Start","Planned End","Forecast End","Actual End","Status","Slip (d)","Comments"];
+      const HEADS=[detailL,"Exp %","Act %","Planned End","Forecast End","Actual End","Status","Comments"];
 
       poMap.forEach(po=>{
         const ph=po.phases;
-        const fe=ph.map(p=>p.foreEnd).filter(Boolean);
-        const pe=ph.map(p=>p.planEnd).filter(Boolean);
+        const fe=ph.map(p=>p.foreEnd).filter(Boolean), pe=ph.map(p=>p.planEnd).filter(Boolean);
         const pofore=fe.length?new Date(Math.max(...fe.map(d=>d.getTime()))):null;
         const poplan=pe.length?new Date(Math.max(...pe.map(d=>d.getTime()))):null;
         const poslip=(pofore&&poplan)?Math.round((pofore-poplan)/86400000):null;
+        const projSeg = po.project ? ("·  "+po.project) : "";
 
         // banner
         m=bar(ws,r,1,NC,PO_FILL,true,true);
         m.value={richText:[
-          {text:`PO ${po.poNo}    `,font:{name:FN,size:11,bold:true,color:{argb:"FFFFFFFF"}}},
+          {text:`${midL} ${po.poNo}    `,font:{name:FN,size:11,bold:true,color:{argb:"FFFFFFFF"}}},
           {text: po.poDesc?`${po.poDesc}    `:"" ,font:{name:FN,size:10,color:{argb:"FFCAD4D8"}}},
-          {text:`·  ${po.project}`+(po.poQty!=null?`     ·     Qty ${po.poQty}`:""),font:{name:FN,size:10,color:{argb:"FFAEBAC0"}}}
+          {text:`${projSeg}`+(po.poQty!=null?`     ·     Qty ${po.poQty}`:""),font:{name:FN,size:10,color:{argb:"FFAEBAC0"}}}
         ]};
         m.alignment={vertical:"middle",horizontal:"left"}; ws.getRow(r).height=24; r++;
 
-        // metrics: status (A:C) + details (D:M)
-        const sc=bar(ws,r,1,3,stFill(po.poStatus),true,true);
-        sc.value=po.poStatus||"—"; sc.font={name:FN,size:10,bold:true,color:{argb:"FFFFFFFF"}}; sc.alignment={vertical:"middle",horizontal:"center"};
+        // metrics: status as DOT (no fill) + details
+        const sc=bar(ws,r,1,3,METRIC,true,true);
+        sc.value=po.poStatus||"\u2014"; sc.font={name:FN,size:10,bold:true,color:{argb:INK}}; sc.alignment={vertical:"middle",horizontal:"left",indent:1};
         const expt=po.poExp!=null?po.poExp.toFixed(1)+"%":"—", actt=po.poAct!=null?po.poAct.toFixed(1)+"%":"—";
         const slipt=poslip!=null?((poslip>0?"+":"")+poslip+" d"):"—";
         const dc=bar(ws,r,4,NC,METRIC,true,true);
-        dc.value=`Expected ${expt}    /    Actual ${actt}          PO forecast:  ${fmtDate(pofore)||"—"}          Slip:  ${slipt}`;
+        dc.value=`Expected ${expt}    /    Actual ${actt}          ${midL} forecast:  ${fmtDate(pofore)||"—"}          Slip:  ${slipt}`;
         dc.font={name:FN,size:10,color:{argb:INK}}; dc.alignment={vertical:"middle",horizontal:"left"};
         ws.getRow(r).height=20; r++;
 
         // phase header
-        for(let i=0;i<9;i++){
+        for(let i=0;i<7;i++){
           const cell=ws.getRow(r).getCell(i+1);
           cell.value=HEADS[i]; cell.fill=fill(HEAD); cell.font={name:FN,size:9,bold:true,color:{argb:MUTED}};
           cell.alignment={vertical:"middle",horizontal:i===0?"left":"center",wrapText:true};
@@ -379,30 +429,23 @@
         // phase rows
         ph.forEach((p,idx)=>{
           const band=idx%2?BANDB:"FFFFFFFF";
-          const slip=(p.foreEnd&&p.planEnd)?Math.round((p.foreEnd-p.planEnd)/86400000):null;
           const bullets=p.comments?p.comments.split(",").map(x=>x.trim()).filter(Boolean):[];
-          const vals=[p.phase,(p.phExp!=null?p.phExp/100:null),(p.phAct!=null?p.phAct/100:null),p.planStart,p.planEnd,p.foreEnd,p.actEnd,p.phStatus,null];
-          for(let i=0;i<9;i++){
+          const vals=[p.phase,(p.phExp!=null?p.phExp/100:null),(p.phAct!=null?p.phAct/100:null),p.planEnd,p.foreEnd,p.actEnd,null];
+          for(let i=0;i<7;i++){
             const cell=ws.getRow(r).getCell(i+1);
             cell.border={bottom:B,left:i===0?B:undefined,right:undefined,top:undefined};
-            if(i===7){ // status
-              cell.value=p.phStatus; cell.fill=fill(stFill(p.phStatus)); cell.font={name:FN,size:8.5,bold:true,color:{argb:"FFFFFFFF"}}; cell.alignment={vertical:"middle",horizontal:"center"}; continue;
-            }
-            if(i===8){ // slip formula + result
-              if(p.planEnd&&p.foreEnd){ cell.value={formula:`IF(OR(E${r}="",F${r}=""),"",F${r}-E${r})`,result:slip}; }
-              cell.numFmt="0"; const s=slipCls(slip); cell.fill=fill(s?SLIP[s]:band);
-              cell.font={name:FN,size:9.5,bold:(slip!=null&&slip>30),color:{argb:(slip!=null&&slip>90)?"FF8E2B20":INK}};
-              cell.alignment={vertical:"top",horizontal:"center"}; continue;
+            if(i===6){ // status as dot, no fill
+              cell.value=statusDot(p.phStatus,9.5); cell.fill=fill(band);
+              cell.alignment={vertical:"middle",horizontal:"left",indent:1}; continue;
             }
             cell.value=vals[i]; cell.fill=fill(band); cell.font={name:FN,size:9.5,color:{argb:INK}};
             cell.alignment={vertical:"top",horizontal:i===0?"left":"center",wrapText:i===0};
             if(i===1||i===2) cell.numFmt="0.0%";
-            if(i>=3&&i<=6) cell.numFmt="dd-mmm-yyyy";
+            if(i>=3&&i<=5) cell.numFmt="dd-mmm-yyyy";
           }
-          // comments J:M
           for(let c=CST;c<=NC;c++){const cell=ws.getRow(r).getCell(c);cell.fill=fill(band);cell.border={bottom:B,left:c===CST?B:undefined,right:c===NC?B:undefined,top:undefined};}
           const cm=ws.getRow(r).getCell(CST);
-          cm.value=bullets.length?bullets.map(b=>"•  "+b).join("\n"):"";
+          cm.value=bullets.length?bullets.map(b=>"\u2022  "+b).join("\n"):"";
           cm.font={name:FN,size:9.5,color:{argb:INK}}; cm.alignment={vertical:"top",horizontal:"left",wrapText:true};
           ws.mergeCells(r,CST,r,NC);
           const lines=Math.max(bullets.length,(String(p.phase).length>24?2:1),1);
